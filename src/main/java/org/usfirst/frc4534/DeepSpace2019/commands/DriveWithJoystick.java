@@ -43,6 +43,15 @@ public class DriveWithJoystick extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        double TarsSpeed = Robot.oi.getjoystick().getY();
+        if (0.05 > TarsSpeed && TarsSpeed > -0.05) {
+            TarsSpeed = 0;
+        }
+        double TarsRotation = Robot.oi.getjoystick().getRawAxis(4);
+        if (0.05 > TarsRotation && TarsRotation > -0.05) {
+            TarsRotation = 0;
+        }
+        Robot.driveTrain.ArcadeDrive(TarsSpeed, TarsRotation);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -54,11 +63,13 @@ public class DriveWithJoystick extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.driveTrain.TankDrive(0,0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        Robot.driveTrain.TankDrive(0,0);
     }
 }

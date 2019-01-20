@@ -91,8 +91,8 @@ public class OI {
         SmartDashboard.putData("LiftWithJoystick", new LiftWithJoystick());
         SmartDashboard.putData("RaiseToHeight", new RaiseToHeight());
         SmartDashboard.putData("ChangeLEDMode", new ChangeLEDMode());
-        SmartDashboard.putData("DriveStraightDistance", new DriveStraightDistance());
-        SmartDashboard.putData("DriveStraightTimed", new DriveStraightTimed());
+        SmartDashboard.putData("DriveStraightDistance", new DriveStraightDistance(0,0));
+        SmartDashboard.putData("DriveStraightTimed", new DriveStraightTimed(0,0));
         SmartDashboard.putData("BezierCurve", new BezierCurve());
         SmartDashboard.putData("AlignToTape", new AlignToTape());
         SmartDashboard.putData("ExtendKablam", new ExtendKablam());
