@@ -36,6 +36,12 @@ public class AlignToTape extends Command {
     }
 
     // Called just before this Command runs the first time
+    double Kp = -0.1;
+    double min_command = 0.05;
+    double tx = Robot.limelight.getXSkew();
+    double left_command = 0;
+    double right_command = 0;
+
     @Override
     protected void initialize() {
     }
@@ -43,8 +49,21 @@ public class AlignToTape extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        tx = Robot.limelight.getXSkew();
+        double heading_error = -tx;
+        double steering_adjust = 0.0;
+        if (tx > 1.0)
+        {
+                steering_adjust = Kp*heading_error - min_command;
+        }
+        else if (tx < 1.0)
+        {
+                steering_adjust = Kp*heading_error + min_command;
+        }
+        left_command += steering_adjust;
+        right_command -= steering_adjust;
+        Robot.driveTrain.TankDrive(left_command, right_command);
     }
-
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {

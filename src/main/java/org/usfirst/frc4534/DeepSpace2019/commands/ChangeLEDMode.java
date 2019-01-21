@@ -36,19 +36,33 @@ public class ChangeLEDMode extends Command {
     }
 
     // Called just before this Command runs the first time
+    boolean isFinished = false;
+    // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        Robot.limelight.setLEDMode(0);
     }
-
+    
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        double currentLEDMode = Robot.limelight.getLEDMode();
+        double newLEDMode;
+        //System.out.println(currentLEDMode);
+        if ((currentLEDMode) == 1) {
+            newLEDMode = 3;
+        } else {
+            newLEDMode = currentLEDMode - 1;
+        }
+        Robot.limelight.setLEDMode(newLEDMode);
+        //System.out.println(Robot.limelight.getLEDMode());
+        isFinished = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return false;
+        return isFinished;
     }
 
     // Called once after isFinished returns true
