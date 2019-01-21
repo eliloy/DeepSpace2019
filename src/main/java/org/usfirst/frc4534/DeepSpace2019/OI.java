@@ -71,8 +71,8 @@ public class OI {
         rightBumper.whileHeld(new EjectBall());
         leftBumper = new JoystickButton(joystick, 5);
         leftBumper.whileHeld(new IntakeBall());
-        yButton = new JoystickButton(joystick, 4);
-        yButton.whenPressed(new BezierCurve());
+        // yButton = new JoystickButton(joystick, 4);
+        // yButton.whenPressed(new BezierCurve());
         xButton = new JoystickButton(joystick, 3);
         xButton.whenPressed(new ToggleRocket());
         bButton = new JoystickButton(joystick, 2);
@@ -93,7 +93,7 @@ public class OI {
         SmartDashboard.putData("ChangeLEDMode", new ChangeLEDMode());
         // SmartDashboard.putData("DriveStraightDistance", new DriveStraightDistance());
         // SmartDashboard.putData("DriveStraightTimed", new DriveStraightTimed());
-        SmartDashboard.putData("BezierCurve", new BezierCurve());
+        // SmartDashboard.putData("BezierCurve", new BezierCurve());
         SmartDashboard.putData("AlignToTape", new AlignToTape());
         SmartDashboard.putData("ExtendKablam", new ExtendKablam());
         SmartDashboard.putData("ExtendKabloom", new ExtendKabloom());
