@@ -136,7 +136,7 @@ public class BezierCurve extends Command {
                 }
             }
             //Calculates distance needed to travel, based on current pos(list[6]) and target (List[5])
-            distance = sqrt(Math.pow(xList[6] - xList[5], 2) + Math.pow(yList[6] - yList[5], 2));
+            distance = Math.sqrt(Math.pow(xList[6] - xList[5], 2) + Math.pow(yList[6] - yList[5], 2));
             //Shifts the "current" target point to the previous one slot.
             xList[6] = xList[5];
             yList[6] = yList[5];
@@ -148,7 +148,8 @@ public class BezierCurve extends Command {
                 r = Math.sin(b) / (Math.sin(angle) / distance);
                 //Testing values in dashboard for troubleshooting
                 //Starts traveiling along the arc at speed (ratio). Goes until the distance is met.
-                if(angle > 0) Robot.driveTrain.TankDrive(m_ratio, ((r - 11.75) / (r + 11.75)) * m_ratio);
+                if(angle 
+                > 0) Robot.driveTrain.TankDrive(m_ratio, ((r - 11.75) / (r + 11.75)) * m_ratio);
                 if(angle < 0) Robot.driveTrain.TankDrive((r + 11.75) / (r - 11.75) * m_ratio, m_ratio);
                 if(angle == 0) Robot.driveTrain.TankDrive(m_ratio, m_ratio);
         }
@@ -174,3 +175,4 @@ public class BezierCurve extends Command {
         Robot.driveTrain.TankDrive(0, 0);
     }
 }
+
