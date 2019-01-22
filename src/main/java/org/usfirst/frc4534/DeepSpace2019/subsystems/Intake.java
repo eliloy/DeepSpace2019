@@ -85,6 +85,8 @@ public class Intake extends Subsystem {
     public void setRocket(boolean state){
         intakeSolenoid.set(state);
     }
-
+    public void setIntakeSpeed(double speeed){
+        intakeJPL.set(speeed);
+    }
 }
 
