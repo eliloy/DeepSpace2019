@@ -78,5 +78,13 @@ public class Intake extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
+    public boolean getRocket(){
+        return intakeSolenoid.get();
+    }
+
+    public void setRocket(boolean state){
+        intakeSolenoid.set(state);
+    }
+
 }
 
