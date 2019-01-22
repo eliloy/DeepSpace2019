@@ -77,5 +77,21 @@ public class EndgameExtensions extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
+
+    public boolean getKablam(){
+        return kablam.get();
+    }
+
+    public void setKablam(boolean state){
+        kablam.set(state);
+    }
+    
+    public boolean getKabloom(){
+        return kabloom.get();
+    }
+
+    public void setKabloom(boolean state){
+        kabloom.set(state);
+    }
 }
 
