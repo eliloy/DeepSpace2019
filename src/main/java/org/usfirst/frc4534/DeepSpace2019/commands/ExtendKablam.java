@@ -65,4 +65,5 @@ public class ExtendKablam extends Command {
     @Override
     protected void interrupted() {
     }
+    protected void no() {}
 }
