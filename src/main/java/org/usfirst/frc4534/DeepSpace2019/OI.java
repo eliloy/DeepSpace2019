@@ -82,7 +82,7 @@ public class OI {
         aButton.whenPressed(new EjectHatch());
 
         joystick2 = new Joystick(1);
-
+        
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         SmartDashboard.putData("DriveWithJoystick", new DriveWithJoystick());
