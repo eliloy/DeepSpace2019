@@ -45,6 +45,8 @@ public class LiftWithJoystick extends Command {
     @Override
     protected void execute() {
         final double liftSpeed = (-1 * Robot.oi.joystick2.getRawAxis(5));
+        Robot.lift.setLiftSpeed(liftSpeed);
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -63,4 +65,5 @@ public class LiftWithJoystick extends Command {
     @Override
     protected void interrupted() {
     }
+
 }
