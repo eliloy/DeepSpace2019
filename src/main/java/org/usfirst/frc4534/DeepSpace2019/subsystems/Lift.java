@@ -128,4 +128,7 @@ public class Lift extends PIDSubsystem {
     public void setLiftSpeed(double speed){ 
         liftJPL.set(speed);
     }
+    public double getLiftSpeed(){
+        return liftEncoder.get();
+    }
 }
