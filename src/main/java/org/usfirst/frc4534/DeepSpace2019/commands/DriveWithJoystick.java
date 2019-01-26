@@ -51,7 +51,7 @@ public class DriveWithJoystick extends Command {
         if (0.05 > TarsRotation && TarsRotation > -0.05) {
             TarsRotation = 0;
         }
-        Robot.driveTrain.ArcadeDrive(TarsSpeed, TarsRotation);
+        Robot.driveTrain.ArcadeDrive(-TarsSpeed, TarsRotation);
     }
 
     // Make this return true when this Command no longer needs to run execute()
