@@ -70,12 +70,26 @@ public class Limelight extends Subsystem {
     // here. Call these from Commands.
     protected NetworkTable limeTable = NetworkTableInstance.getDefault().getTable("limelight");
     
+    //Has target
+    protected NetworkTableEntry tv = limeTable.getEntry("tv");
     //Horizontal Offset
     protected NetworkTableEntry tx = limeTable.getEntry("tx");
     //Vertical Offset
     protected NetworkTableEntry ty = limeTable.getEntry("ty");
     //Amount of 
     protected NetworkTableEntry ta = limeTable.getEntry("ta");
+    //Skew
+    protected NetworkTableEntry ts = limeTable.getEntry("ts");
+    //Latency
+    protected NetworkTableEntry tl = limeTable.getEntry("tl");
+    //Short side of blue box
+    protected NetworkTableEntry tshort = limeTable.getEntry("tshort");
+    //Long side of blue box
+    protected NetworkTableEntry tlong = limeTable.getEntry("tlong");
+    //Horizontal of yellow box
+    protected NetworkTableEntry thor = limeTable.getEntry("thor");
+    //Vertical of yellow box
+    protected NetworkTableEntry tvert = limeTable.getEntry("tvert");
 
     public void setLEDMode(double mode) {
         if (mode == 0 && getLEDMode() != 0) {
@@ -101,6 +115,31 @@ public class Limelight extends Subsystem {
     }
     public double getYSkew() {
         return ty.getDouble(0);
+    }
+    public boolean limelightHasTarget() {
+        if(tv.getDouble(0) == 1.0) return true;
+        else return false;
+    }
+    public double getAreaPercent() {
+        return ta.getDouble(0);
+    }
+    public double getArea() {
+        return (ta.getDouble(0) / 100) * 76800;
+    }
+    public double getLatency() {
+        return tl.getDouble(0);
+    }
+    public double getBlueBoxLong() {
+        return tlong.getDouble(0);
+    }
+    public double getBlueBoxShort() {
+        return tshort.getDouble(0);
+    }
+    public double getYellowBoxHorizontal() {
+        return thor.getDouble(0);
+    }
+    public double getYellowBoxVertical() {
+        return tvert.getDouble(0);
     }
 }
 
