@@ -36,33 +36,37 @@ public class GoToTape extends Command {
     }
 
     // Called just before this Command runs the first time
-    double Kp = -0.1;
-    double min_command = 0.05;
-    double tx = Robot.limelight.getXSkew();
-    double left_command = 0;
-    double right_command = 0;
+    double distance;
+    double angle;
+    double longSide = 14.34;
+    double shortSide = 5.3411;
+    double maxPercent = 0.49661553;
+    double closestDistance = 14.1;
+    double sizeAverage;
+    double angleAverage;
+    double[] sampleSizes = new double[9];
+    double[] sampleAngles = new double[9];
 
     @Override
     protected void initialize() {
+        if(Robot.limelight.limelightHasTarget() == true) {
+            long startTime = System.currentTimeMillis();
+            for(int i = 0; i == 9; i++) {
+                while(System.currentTimeMillis() - startTime < 20 * i){
+                    //QUICK DO NOTHING
+                }
+                recordValues(i);
+            }
+        }
+        else {
+            //bad boys go here
+        }
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        tx = Robot.limelight.getXSkew();
-        double heading_error = -tx;
-        double steering_adjust = 0.0;
-        if (tx > 1.0)
-        {
-                steering_adjust = Kp*heading_error - min_command;
-        }
-        else if (tx < 1.0)
-        {
-                steering_adjust = Kp*heading_error + min_command;
-        }
-        left_command += steering_adjust;
-        right_command -= steering_adjust;
-        Robot.driveTrain.TankDrive(left_command, right_command);
+        
     }
     // Make this return true when this Command no longer needs to run execute()
     @Override
@@ -79,5 +83,10 @@ public class GoToTape extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+    }
+
+    protected void recordValues(int place) {
+        sampleSizes[place] = Robot.limelight.getAreaPercent();
+        sampleAngles[place] = Robot.limelight.getXSkew();
     }
 }
