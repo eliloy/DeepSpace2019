@@ -11,7 +11,9 @@
 
 package org.usfirst.frc4534.DeepSpace2019.subsystems;
 
+import com.kauailabs.navx.frc.*;
 
+import org.usfirst.frc4534.DeepSpace2019.Robot;
 import org.usfirst.frc4534.DeepSpace2019.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -167,11 +169,11 @@ public class DriveTrain extends Subsystem {
     }
 
     public void resetGyroAngle() {
-        gyro.reset();
+        Robot.ahrs.reset();
     }
 
     public double getGyroAngle() {
-        return gyro.getAngle();
+        return Robot.ahrs.getAngle();
     }
 
     public double getLeftDistanceCounter() {
@@ -182,16 +184,6 @@ public class DriveTrain extends Subsystem {
         return rightEncoder.getDistance();
     }
 
-    public boolean robotIsEnabled() {
-        if (rightMasterJPL.get() > 0.000001) {
-            return true;
-        }
-
-        if (leftMasterJPL.get() > 0.000001) {
-            return true;
-        }
-        
-        else return false;
-    }
+    
 }
 

@@ -48,7 +48,7 @@ public class Robot extends TimedRobot {
     public static Limelight limelight;
     public static Lift lift;
     public static Navx navx;
-    public AHRS ahrs;
+    public static AHRS ahrs;
     // Joystick joystick1;
     // JoystickButton button;
 
@@ -99,7 +99,7 @@ public class Robot extends TimedRobot {
 		// 	 * Multiple navX-model devices on a single robot are supported.
 		// 	 ************************************************************************/
         //     //ahrs = new AHRS(SerialPort.Port.kUSB1);
-             ahrs = new AHRS(SerialPort.Port.kMXP, SerialDataType.kProcessedData, (byte)50);                                                                                                                                                                                                                            
+             ahrs = new AHRS(SerialPort.Port.kMXP, SerialDataType.kProcessedData, (byte)50);                                                                                                                                                                                                          
              ahrs.enableLogging(true);
          } catch (RuntimeException ex ) {
              DriverStation.reportError("Error instantiating navX MXP:  " + ex.getMessage(), true);
