@@ -181,5 +181,17 @@ public class DriveTrain extends Subsystem {
     public double getRightDistanceCounter() {
         return rightEncoder.getDistance();
     }
+
+    public boolean robotIsEnabled() {
+        if (rightMasterJPL.get() > 0.000001) {
+            return true;
+        }
+
+        if (leftMasterJPL.get() > 0.000001) {
+            return true;
+        }
+        
+        else return false;
+    }
 }
 
