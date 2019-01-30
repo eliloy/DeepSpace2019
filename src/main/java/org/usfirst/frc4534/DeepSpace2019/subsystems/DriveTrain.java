@@ -173,7 +173,7 @@ public class DriveTrain extends Subsystem {
     }
 
     public double getGyroAngle() {
-        return Robot.ahrs.getAngle();
+        return Robot.ahrs.getYaw();
     }
 
     public double getLeftDistanceCounter() {
