@@ -52,6 +52,7 @@ public class DriveWithJoystick extends Command {
             TarsRotation = 0;
         }
         Robot.driveTrain.ArcadeDrive(-TarsSpeed, TarsRotation);
+        Robot.driveTrain.setShifter(Robot.oi.leftJoystick.get());
     }
 
     // Make this return true when this Command no longer needs to run execute()

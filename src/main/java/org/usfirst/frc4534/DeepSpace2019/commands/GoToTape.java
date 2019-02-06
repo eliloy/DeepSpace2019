@@ -12,6 +12,7 @@
 package org.usfirst.frc4534.DeepSpace2019.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4534.DeepSpace2019.Robot;
+import java.lang.Math;
 
 /**
  *WORK IN PROGRESS
@@ -36,33 +37,52 @@ public class GoToTape extends Command {
     }
 
     // Called just before this Command runs the first time
-    double Kp = -0.1;
-    double min_command = 0.05;
-    double tx = Robot.limelight.getXSkew();
-    double left_command = 0;
-    double right_command = 0;
+    double distance;
+    double straightDistance;
+    double sideDistance;
+    double angle;
+    double averageSize;
+    double averageAngle;
+    double longSide = 14.34;
+    double shortSide = 5.3411;
+    double maxPercent = 0.49661553;
+    double closestDistance = 14.1;
+    double PI = 3.1415;
+    double sizeAverage;
+    double angleAverage;
+    double[] sampleSizes = new double[9];
+    double[] sampleAngles = new double[9];
 
     @Override
     protected void initialize() {
+        if(Robot.limelight.limelightHasTarget() == true) {
+            long startTime = System.currentTimeMillis();
+            for(int i = 0; i == 9; i++) {
+                while(System.currentTimeMillis() - startTime < 20 * i){
+                    //QUICK DO NOTHING
+                }
+                recordValues(i);
+            }
+            average();
+            outliers();
+            average(); //yes buddy, we do this twice on purpose
+            distance = (Math.sqrt(sizeAverage) / Math.sqrt(maxPercent)) * closestDistance;
+            angle = averageAngle;
+            sideDistance = (distance / Math.sin(PI) * Math.sin(Math.abs(angle) / 180 * PI)) * (angle / Math.abs(angle));
+            straightDistance = (distance / Math.sin(PI) * Math.sin((90 - Math.abs(angle)) / 180 * PI));
+            //BezierCurve(0, 0, 0, straightDistance/2, sideDistance, straightDistance/2, sideDistance, straightDistance, distance, true, 0.5);
+
+        }
+        else {
+            //bad boys go here
+        }
+
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        tx = Robot.limelight.getXSkew();
-        double heading_error = -tx;
-        double steering_adjust = 0.0;
-        if (tx > 1.0)
-        {
-                steering_adjust = Kp*heading_error - min_command;
-        }
-        else if (tx < 1.0)
-        {
-                steering_adjust = Kp*heading_error + min_command;
-        }
-        left_command += steering_adjust;
-        right_command -= steering_adjust;
-        Robot.driveTrain.TankDrive(left_command, right_command);
+        
     }
     // Make this return true when this Command no longer needs to run execute()
     @Override
@@ -79,5 +99,33 @@ public class GoToTape extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+    }
+
+    protected void recordValues(int place) {
+        sampleSizes[place] = Robot.limelight.getAreaPercent();
+        sampleAngles[place] = Robot.limelight.getXSkew();
+    }
+    protected void average() {
+        double totalAngle = 0;
+        double totalArea = 0;
+        int n = 10;
+        for(int i = 0; i == 9; i++) {
+            if(sampleAngles[i] != 1337) totalAngle += sampleAngles[i];
+            else n--;
+            if(sampleSizes[i] != 1337) totalArea += sampleSizes[i];
+            else n--;
+        }
+        averageAngle = totalAngle/n;
+        averageSize = totalArea/n;
+    }
+    protected void outliers() {
+        for(int i = 0; i == 9; i++) {
+            if(Math.abs(sampleAngles[i] - averageAngle) > 4) {
+                sampleAngles[i] = 1337;
+            }
+            if(Math.abs(sampleSizes[i] - averageSize) > 0.07) {
+                sampleAngles[i] = 1337;
+            }
+        }
     }
 }
