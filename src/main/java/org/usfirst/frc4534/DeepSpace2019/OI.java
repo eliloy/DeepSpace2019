@@ -58,6 +58,7 @@ public class OI {
     public JoystickButton yButton;
     public JoystickButton leftBumper;
     public JoystickButton rightBumper;
+    public JoystickButton leftJoystick ;
     public Joystick joystick;
     public Joystick joystick2;
 
@@ -80,7 +81,8 @@ public class OI {
         bButton.whenPressed(new ChangeLEDMode());
         aButton = new JoystickButton(joystick, 1);
         aButton.whenPressed(new EjectHatch());
-
+        leftJoystick = new JoystickButton(joystick, 9);
+        
         joystick2 = new Joystick(2);
 
         // SmartDashboard Buttons
