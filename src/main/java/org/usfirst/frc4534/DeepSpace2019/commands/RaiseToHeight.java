@@ -50,7 +50,7 @@ public class RaiseToHeight extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        if(Math.abs(Robot.oi.getjoystick2().getRawAxis(5)) > 0.05) {
+        if(Math.abs(Robot.oi.getJoystick2().getRawAxis(5)) > 0.05) {
             return true;
         }
         else {

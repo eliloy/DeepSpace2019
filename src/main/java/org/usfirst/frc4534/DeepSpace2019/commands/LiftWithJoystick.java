@@ -44,11 +44,7 @@ public class LiftWithJoystick extends Command {
     // Called repeatedly when t his Command is scheduled to run
     @Override
     protected void execute() {
-<<<<<<< HEAD
-        final double liftSpeed = (-1 * Robot.oi.getjoystick2().getRawAxis(5));
-=======
         final double liftSpeed = (-1 * Robot.oi.getJoystick2().getRawAxis(5));
->>>>>>> refs/remotes/origin/master
         Robot.lift.setLiftSpeed(liftSpeed);
         
     }
