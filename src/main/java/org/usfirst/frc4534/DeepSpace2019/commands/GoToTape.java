@@ -37,9 +37,9 @@ public class GoToTape extends Command {
     }
 
     // Called just before this Command runs the first time
-    double distance;
-    double straightDistance;
-    double sideDistance;
+    public static double distance;
+    public static double straightDistance;
+    public static double sideDistance;
     double angle;
     double averageSize;
     double averageAngle;
@@ -70,11 +70,10 @@ public class GoToTape extends Command {
             angle = averageAngle;
             sideDistance = (distance / Math.sin(PI) * Math.sin(Math.abs(angle) / 180 * PI)) * (angle / Math.abs(angle));
             straightDistance = (distance / Math.sin(PI) * Math.sin((90 - Math.abs(angle)) / 180 * PI));
-            //BezierCurve(0, 0, 0, straightDistance/2, sideDistance, straightDistance/2, sideDistance, straightDistance, distance, true, 0.5);
-
         }
         else {
             //bad boys go here
+            //ASTROTOSH IS THE TRUE NAME
         }
 
     }
@@ -127,5 +126,9 @@ public class GoToTape extends Command {
                 sampleAngles[i] = 1337;
             }
         }
+    }
+    public double GTT_retrive(char c) {
+        if(c == 'f') return straightDistance;
+        else return sideDistance;
     }
 }
