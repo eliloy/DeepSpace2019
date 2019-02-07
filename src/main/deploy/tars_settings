@@ -1,0 +1,5 @@
+tars_default_humor = 100%
+tars_default_honesty = 90%
+
+tars_override_humor = 60%
+tar_override_honesty = 95%
