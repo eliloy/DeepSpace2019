@@ -149,7 +149,7 @@ public class DriveTrain extends Subsystem {
     // here. Call these from Commands.
 
     public void ArcadeDrive(double speed, double rotation) {
-        deltaD.arcadeDrive(speed, rotation, true);
+        deltaD.arcadeDrive(speed * .7, rotation * .7, true);
     }
 
     public void TankDrive(double leftSpeed, double rightSpeed) {
