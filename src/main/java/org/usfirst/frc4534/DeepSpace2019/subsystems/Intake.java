@@ -55,7 +55,7 @@ public class Intake extends Subsystem {
         intakeJPL = new WPI_VictorSPX(7);
 
         drSolenoid = new Solenoid(0, 4);
-        addChild("drSolenoid",drSolenoid);
+        addChild("drSolenoid", drSolenoid);
         
 
         vacuumJPL = new WPI_TalonSRX(8);
@@ -103,6 +103,10 @@ public class Intake extends Subsystem {
         intakeSolenoid.set(state);
         drSolenoid.set(state);
         
+    }
+
+    public void setdrSolenoid(boolean state){
+        drSolenoid.set(state);
     }
     public void setIntakeSpeed(double speeed){
         intakeJPL.set(speeed);
