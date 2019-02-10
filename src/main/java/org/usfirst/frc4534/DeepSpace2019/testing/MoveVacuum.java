@@ -11,9 +11,9 @@ import org.usfirst.frc4534.DeepSpace2019.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class MoveIntake extends Command {
+public class MoveVacuum extends Command {
   private double m_rate;
-  public MoveIntake(double rate) {
+  public MoveVacuum(double rate) {
     m_rate = rate;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -28,7 +28,7 @@ public class MoveIntake extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.movingMotors.intakeSet(m_rate);
+    Robot.movingMotors.vacuumSet(m_rate);
   }
 
   // Make this return true when this Command no longer needs to run execute()

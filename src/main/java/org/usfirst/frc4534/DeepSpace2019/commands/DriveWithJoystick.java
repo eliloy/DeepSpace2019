@@ -39,23 +39,23 @@ public class DriveWithJoystick extends Command {
     @Override
     protected void initialize() {
         Robot.driveTrain.resetMotorControllers();
-        Robot.driveTrain.setInversions();
-        Robot.driveTrain.setToFollow();
+        //Robot.driveTrain.setInversions();
+        //Robot.driveTrain.setToFollow();
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        double TarsSpeed = Robot.oi.joystick.getY();
+        double TarsSpeed = Robot.oi.joystick.getY() * 0.4;
         if (0.05 > TarsSpeed && TarsSpeed > -0.05) {
             TarsSpeed = 0;
         }
-        double TarsRotation = Robot.oi.joystick.getRawAxis(4) * 0.7;
+        double TarsRotation = Robot.oi.joystick.getRawAxis(4) * 0.4;
         if (0.05 > TarsRotation && TarsRotation > -0.05) {
             TarsRotation = 0;
         }
         Robot.driveTrain.ArcadeDrive(-TarsSpeed, TarsRotation);
-        Robot.driveTrain.setShifter(Robot.oi.leftJoystick.get());
+        // Robot.driveTrain.setShifter(Robot.oi.leftJoystick.get());
     }
 
     // Make this return true when this Command no longer needs to run execute()
