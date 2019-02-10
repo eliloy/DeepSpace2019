@@ -69,8 +69,8 @@ public class OI {
 
         joystick = new Joystick(0);
         
-        //rightBumper = new JoystickButton(joystick, 6);
-        //rightBumper.whileHeld(new EjectBall());
+        rightBumper = new JoystickButton(joystick, 6);
+        rightBumper.whileHeld(new ToggleSaul());
         //leftBumper = new JoystickButton(joystick, 5);
         //leftBumper.whileHeld(new IntakeBall());
         //yButton = new JoystickButton(joystick, 4);
@@ -86,6 +86,7 @@ public class OI {
         // joystick2 = new Joystick(1);
 
         // SmartDashboard Buttons
+        SmartDashboard.putData("ToggleSaul", new ToggleSaul());
         // SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         // SmartDashboard.putData("IntakeBall", new IntakeBall(0.7));
         // SmartDashboard.putData("EjectBall", new EjectBall(0.7));

@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * Add your docs here.
  */
 public class TestingPistons extends Subsystem {
+  private boolean state;
   private Solenoid solenoid1; 
   private Solenoid solenoid2;
   private Solenoid solenoid3;
@@ -75,5 +76,31 @@ public class TestingPistons extends Subsystem {
   public boolean getSaul(){
     return solenoid1.get();
   }
+public void setSaul(boolean state){
+  solenoid1.set(state);
+}
 
+public boolean getSeoul(){
+  return solenoid2.get();
+}
+
+public void setSeoul(boolean state){
+  solenoid2.set(state);
+}
+
+public boolean getSeal(){
+  return solenoid3.get();
+}
+
+public void setSeal(boolean state){
+  solenoid3.set(state);
+}
+
+public boolean getSoul(){
+  return solenoid4.get();
+}
+
+public void setSoul(boolean state){
+  solenoid4.set(state);
+}
 }
