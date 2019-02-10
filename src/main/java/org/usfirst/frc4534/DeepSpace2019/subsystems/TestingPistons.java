@@ -97,4 +97,12 @@ public boolean getSoul(){
 public void setSoul(boolean state){
   solenoid4.set(state);
 }
+
+public boolean getSill(){
+  return solenoid5.get();
+}
+
+public void setSill(boolean state){
+  solenoid5.set(state);
+}
 }
