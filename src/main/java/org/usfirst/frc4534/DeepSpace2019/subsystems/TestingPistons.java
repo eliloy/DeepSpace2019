@@ -23,8 +23,7 @@ public class TestingPistons extends Subsystem {
   private Solenoid solenoid6;
   private Solenoid solenoid7;
   private Solenoid solenoid8;
-  private Solenoid solenoid9;
-  private Solenoid solenoid10;
+  
 
   public TestingPistons(){
     solenoid1 = new Solenoid(30, 1);
@@ -51,12 +50,7 @@ public class TestingPistons extends Subsystem {
     solenoid8 = new Solenoid(30, 8);
     addChild("solenoid8", solenoid8);
 
-    solenoid9 = new Solenoid(30, 9);
-    addChild("solenoid9", solenoid9);
-
-    solenoid10 = new Solenoid(30, 10);
-    addChild("solenoid10", solenoid10);
-
+  
     
   }
 
