@@ -81,8 +81,8 @@ public class OI {
         //yButton.whenPressed(new BezierCurve());
         //xButton = new JoystickButton(joystick, 3);
         //xButton.whenPressed(new ToggleRocket());
-        //bButton = new JoystickButton(joystick, 2);
-        //bButton.whenPressed(new ChangeLEDMode());
+        bButton = new JoystickButton(joystick, 2);
+        bButton.whenPressed(new ToggleSaul());
         aButton = new JoystickButton(joystick, 1);
         aButton.whenPressed(new MoveVacuum(-1.0));
         aButton.whenReleased(new MoveVacuum(0.0));
@@ -91,6 +91,7 @@ public class OI {
         // joystick2 = new Joystick(1);
 
         // SmartDashboard Buttons
+        SmartDashboard.putData("ToggleSaul", new ToggleSaul());
         // SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         // SmartDashboard.putData("IntakeBall", new IntakeBall(0.7));
         // SmartDashboard.putData("EjectBall", new EjectBall(0.7));
