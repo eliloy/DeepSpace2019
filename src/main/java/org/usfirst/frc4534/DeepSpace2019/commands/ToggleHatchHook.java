@@ -22,7 +22,7 @@ public class ToggleHatchHook extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-      Robot.testingPistons.getSill();
+      state = Robot.testingPistons.getSill();
 
   }
 

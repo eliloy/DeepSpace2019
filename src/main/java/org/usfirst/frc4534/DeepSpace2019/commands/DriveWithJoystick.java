@@ -46,11 +46,11 @@ public class DriveWithJoystick extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        double TarsSpeed = Robot.oi.joystick.getY() * 0.4;
+        double TarsSpeed = Robot.oi.joystick.getRawAxis(1) * 0.7;
         if (0.05 > TarsSpeed && TarsSpeed > -0.05) {
             TarsSpeed = 0;
         }
-        double TarsRotation = Robot.oi.joystick.getRawAxis(4) * 0.4;
+        double TarsRotation = Robot.oi.joystick.getRawAxis(4) * 0.7;
         if (0.05 > TarsRotation && TarsRotation > -0.05) {
             TarsRotation = 0;
         }

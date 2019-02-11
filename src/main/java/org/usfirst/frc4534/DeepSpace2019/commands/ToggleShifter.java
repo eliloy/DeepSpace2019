@@ -34,7 +34,7 @@ public class ToggleShifter extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-      return false;
+      return isFinished;
     }
   
     // Called once after isFinished returns true
