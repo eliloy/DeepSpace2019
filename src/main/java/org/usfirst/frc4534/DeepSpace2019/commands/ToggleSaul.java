@@ -23,7 +23,7 @@ public class ToggleSaul extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    state = Robot.testingPistons.getSaul();
+    state = Robot.testingPistons.betterCallSaul();
   }
 
   // Called repeatedly when this Command is scheduled to run

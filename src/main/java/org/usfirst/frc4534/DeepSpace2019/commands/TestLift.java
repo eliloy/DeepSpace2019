@@ -46,7 +46,7 @@ public class TestLift extends Command {
         Robot.movingMotors.liftSet(Robot.oi.getJoystick2().getRawAxis(1) * 0.3);
     }
     else {
-        
+        Robot.movingMotors.liftSet(0);
     }
     }
 

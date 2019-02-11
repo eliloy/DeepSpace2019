@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * Add your docs here.
  */
 public class TestingPistons extends Subsystem {
-  private boolean state;
   private Solenoid solenoid1; 
   private Solenoid solenoid2;
   private Solenoid solenoid3;
@@ -67,42 +66,50 @@ public class TestingPistons extends Subsystem {
 
   }
 
-  public boolean getSaul(){
+  public boolean betterCallSaul(){
     return solenoid1.get();
   }
-public void setSaul(boolean state){
-  solenoid1.set(state);
-}
+  public void setSaul(boolean state){
+    solenoid1.set(state);
+  }
 
-public boolean getSeoul(){
-  return solenoid2.get();
-}
+  public boolean getSeoul(){
+    return solenoid2.get();
+  }
 
-public void setSeoul(boolean state){
-  solenoid2.set(state);
-}
+  public void setSeoul(boolean state){
+    solenoid2.set(state);
+  }
 
-public boolean getSeal(){
-  return solenoid3.get();
-}
+  public boolean getSeal(){
+    return solenoid3.get();
+  }
 
-public void setSeal(boolean state){
-  solenoid3.set(state);
-}
+  public void setSeal(boolean state){
+    solenoid3.set(state);
+  }
 
-public boolean getSoul(){
-  return solenoid4.get();
-}
+  public boolean getSoul(){
+    return solenoid4.get();
+  }
 
-public void setSoul(boolean state){
-  solenoid4.set(state);
-}
+  public void setSoul(boolean state){
+    solenoid4.set(state);
+  }
 
-public boolean getSill(){
-  return solenoid5.get();
-}
+  public boolean getSill(){
+    return solenoid5.get();
+  }
 
-public void setSill(boolean state){
-  solenoid5.set(state);
-}
+  public void setSill(boolean state){
+    solenoid5.set(state);
+  }
+
+  public boolean getSquol(){
+    return solenoid6.get();
+  }
+
+  public void setSquol(boolean state) {
+    solenoid6.set(state);
+  }
 }
