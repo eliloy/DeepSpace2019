@@ -10,12 +10,16 @@ package org.usfirst.frc4534.DeepSpace2019.subsystems;
 import org.usfirst.frc4534.DeepSpace2019.Robot;
 import org.usfirst.frc4534.DeepSpace2019.commands.*;
 
+import edu.wpi.first.hal.sim.mockdata.PDPDataJNI;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
 import edu.wpi.first.wpilibj.PIDSourceType;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Add your docs here.
@@ -25,6 +29,7 @@ public class MovingMotors extends Subsystem {
     private WPI_VictorSPX intakeMotor;
     private WPI_VictorSPX liftMotor;
     private Encoder liftEncoder;
+    private PowerDistributionPanel pdp;
 
     public MovingMotors() {
         vacuumMotor = new WPI_TalonSRX(8);
@@ -35,6 +40,10 @@ public class MovingMotors extends Subsystem {
         addChild("liftEncoder",liftEncoder);
         liftEncoder.setDistancePerPulse(1.0);
         liftEncoder.setPIDSourceType(PIDSourceType.kRate);
+
+        vacuumMotor.getOutputCurrent();
+
+        pdp = new PowerDistributionPanel();
     }
 
     @Override
@@ -69,4 +78,9 @@ public class MovingMotors extends Subsystem {
     public double getLiftEncoder() {
         return liftEncoder.getDistance();
     }
+
+    public void getAmps() {
+        SmartDashboard.putNumber("Motor Current", pdp.getCurrent(1));
+    }
 }
+
