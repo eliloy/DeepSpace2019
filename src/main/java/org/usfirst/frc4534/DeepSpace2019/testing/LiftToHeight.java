@@ -7,33 +7,47 @@
 
 package org.usfirst.frc4534.DeepSpace2019.testing;
 
+import org.usfirst.frc4534.DeepSpace2019.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 public class LiftToHeight extends Command {
-  public LiftToHeight() {
+  protected double m_setpoint;
+  public LiftToHeight(double setpoint) {
+    m_setpoint = setpoint; 
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.movingMotors);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.movingMotors.resetLiftEncoder();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.movingMotors.liftSet(.5);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    if(Robot.movingMotors.getLiftEncoder() < m_setpoint){
+      return false;
+    } 
+    if(Robot.oi.joystick2.getRawAxis(1) > 0.05){
+      return true; 
+    }
+    else return true; 
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    
   }
 
   // Called when another command which requires one or more of the same
