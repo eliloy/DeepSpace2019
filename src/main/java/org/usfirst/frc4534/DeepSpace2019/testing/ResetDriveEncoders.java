@@ -5,13 +5,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc4534.DeepSpace2019.commands;
+package org.usfirst.frc4534.DeepSpace2019.testing;
 
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4534.DeepSpace2019.Robot;
 
-public class ResetGyro extends Command {
-  public ResetGyro() {
+import edu.wpi.first.wpilibj.command.Command;
+
+public class ResetDriveEncoders extends Command {
+  public ResetDriveEncoders() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.driveTrain);
@@ -25,13 +26,16 @@ public class ResetGyro extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Robot.driveTrain.resetRightEncoder();
+    Robot.driveTrain.resetDistanceCounter();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    if(Robot.driveTrain.getRightDistanceCounter() > 0.0){
+      return false;
+    }
+    else return true;
   }
 
   // Called once after isFinished returns true

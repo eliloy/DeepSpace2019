@@ -42,11 +42,14 @@ public class TestLift extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-    if(Math.abs(Robot.oi.getJoystick2().getRawAxis(1)) > 0.05) {
-        Robot.movingMotors.liftSet(Robot.oi.getJoystick2().getRawAxis(1) * 0.3);
+    double TarsSpeed;
+    if(Math.abs(Robot.oi.joystick2.getRawAxis(1)) > 0.05) {
+        TarsSpeed = (Robot.oi.joystick2.getRawAxis(1) * 0.5);
+        System.out.println("TarsSpeed = " + TarsSpeed);
+        Robot.movingMotors.liftSet(TarsSpeed);
     }
     else {
-        Robot.movingMotors.liftSet(0);
+        Robot.movingMotors.liftSet(0.0);
     }
     }
 

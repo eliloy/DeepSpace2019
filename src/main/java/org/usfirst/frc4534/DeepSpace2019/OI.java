@@ -78,17 +78,17 @@ public class OI {
         joystick = new Joystick(0);
         
         rightBumper = new JoystickButton(joystick, 6);
-        rightBumper.whenPressed(new MoveIntake(-0.7));
+        rightBumper.whenPressed(new MoveIntake(-1.0));
         rightBumper.whenReleased(new MoveIntake(0.0));
         leftBumper = new JoystickButton(joystick, 5);
-        leftBumper.whenPressed(new MoveIntake(0.7));
+        leftBumper.whenPressed(new MoveIntake(1.0));
         leftBumper.whenReleased(new MoveIntake(0.0));
         //yButton = new JoystickButton(joystick, 4);
         //yButton.whenPressed(new BezierCurve());
         //xButton = new JoystickButton(joystick, 3);
         //xButton.whenPressed(new ToggleRocket());
         bButton = new JoystickButton(joystick, 2);
-        bButton.whenPressed(new ToggleSaul());
+        bButton.whenPressed(new ResetGyro());
         aButton = new JoystickButton(joystick, 1);
         aButton.whenPressed(new MoveVacuum(-1.0));
         aButton.whenReleased(new MoveVacuum(0.0));

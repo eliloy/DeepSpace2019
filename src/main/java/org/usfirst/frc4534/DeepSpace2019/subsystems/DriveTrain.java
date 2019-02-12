@@ -81,9 +81,9 @@ public class DriveTrain extends Subsystem {
         deltaD.setMaxOutput(1.0);
 
         
-        leftEncoder = new Encoder(2, 3, false, EncodingType.k4X);
+        leftEncoder = new Encoder(0, 1, false, EncodingType.k4X);
         addChild("leftEncoder",leftEncoder);
-        leftEncoder.setDistancePerPulse(1.0);
+        leftEncoder.setDistancePerPulse(1.0/670.0);
         leftEncoder.setPIDSourceType(PIDSourceType.kRate);
         
         compressor = new Compressor(30);
@@ -94,9 +94,9 @@ public class DriveTrain extends Subsystem {
         addChild("gyro",gyro);
         gyro.setSensitivity(0.007);
         
-        rightEncoder = new Encoder(4, 5, false, EncodingType.k4X);
+        rightEncoder = new Encoder(2, 3, false, EncodingType.k4X);
         addChild("rightEncoder",rightEncoder);
-        rightEncoder.setDistancePerPulse(1.0);
+        rightEncoder.setDistancePerPulse(1.0/670.0);
         rightEncoder.setPIDSourceType(PIDSourceType.kRate);
         
         leftFollowerJPLT = new WPI_TalonSRX(2);
