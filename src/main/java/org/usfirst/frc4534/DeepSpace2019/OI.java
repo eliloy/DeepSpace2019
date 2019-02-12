@@ -88,7 +88,7 @@ public class OI {
         //xButton = new JoystickButton(joystick, 3);
         //xButton.whenPressed(new ToggleRocket());
         bButton = new JoystickButton(joystick, 2);
-        bButton.whenPressed(new ToggleSaul());
+        bButton.whenPressed(new ResetGyro());
         aButton = new JoystickButton(joystick, 1);
         aButton.whenPressed(new MoveVacuum(-1.0));
         aButton.whenReleased(new MoveVacuum(0.0));

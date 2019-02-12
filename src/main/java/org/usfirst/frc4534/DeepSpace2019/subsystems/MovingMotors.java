@@ -62,4 +62,8 @@ public class MovingMotors extends Subsystem {
     public void intakeOn() {
         intakeMotor.set(0.8);
     }
+
+    public void resetLiftEncoder() {
+        liftEncoder.reset();
+    }
 }
