@@ -66,4 +66,7 @@ public class MovingMotors extends Subsystem {
     public void resetLiftEncoder() {
         liftEncoder.reset();
     }
+    public double getLiftEncoder() {
+        return liftEncoder.getDistance();
+    }
 }

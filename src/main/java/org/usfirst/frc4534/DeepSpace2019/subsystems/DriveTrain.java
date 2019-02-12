@@ -219,10 +219,6 @@ public class DriveTrain extends Subsystem {
         rightFollowerJPLV.configFactoryDefault();
     }
 
-    public void resetRightEncoder() {
-        //rightEncoder.reset();
-    }
-
     /* public void setToFollow() {
         leftFollowerJPLT.follow(leftMasterJPL);
         leftFollowerJPLV.follow(leftMasterJPL);
