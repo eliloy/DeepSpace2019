@@ -87,26 +87,26 @@ public class OI {
         //yButton.whenPressed(new BezierCurve());
         //xButton = new JoystickButton(joystick, 3);
         //xButton.whenPressed(new ToggleRocket());
-        bButton = new JoystickButton(joystick, 2);
-        bButton.whenPressed(new ResetGyro());
+        //bButton = new JoystickButton(joystick, 2);
+        //bButton.whenPressed(new ResetGyro());
         aButton = new JoystickButton(joystick, 1);
-        aButton.whenPressed(new MoveVacuum(-1.0));
-        aButton.whenReleased(new MoveVacuum(0.0));
+        aButton.whenPressed(new ToggleShifter());
         //leftJoystick = new JoystickButton(joystick, 9);
         
         joystick2 = new Joystick(1);
         aButton2 = new JoystickButton(joystick2, 1);
-        aButton2.whenPressed(new ToggleShifter());
+        aButton2.whenPressed(new MoveVacuum(-1.0));
+        aButton2.whenReleased(new MoveVacuum(0.0));
         bButton2 = new JoystickButton(joystick2, 2);
         bButton2.whenPressed(new ToggleRocket());
         xButton2 = new JoystickButton(joystick2, 3);
         xButton2.whenPressed(new ToggleHatch());
         yButton2 = new JoystickButton(joystick2, 4);
         yButton2.whenPressed(new ToggleVacSlide());
-        // is only actuating once
         leftBumper2 = new JoystickButton(joystick2, 5);
         leftBumper2.whenPressed(new ToggleHatchHook());
-        // is only actuating once
+        rightBumper2 = new JoystickButton(joystick2, 6);
+        rightBumper2.whenPressed(new ToggleKablams());
 
         // SmartDashboard Buttons
         SmartDashboard.putData("ToggleSaul", new ToggleSaul());

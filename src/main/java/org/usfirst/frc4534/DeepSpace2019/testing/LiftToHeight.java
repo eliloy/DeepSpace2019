@@ -17,25 +17,25 @@ public class LiftToHeight extends Command {
     m_setpoint = setpoint; 
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.movingMotors);
+    requires(Robot.redesignedLift);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.movingMotors.resetLiftEncoder();
+    Robot.redesignedLift.resetLiftEncoder();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.movingMotors.liftSet(.5);
+    Robot.redesignedLift.liftSet(.5);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if(Robot.movingMotors.getLiftEncoder() < m_setpoint){
+    if(Robot.redesignedLift.getLiftEncoder() < m_setpoint){
       return false;
     } 
     if(Robot.oi.joystick2.getRawAxis(1) > 0.05){

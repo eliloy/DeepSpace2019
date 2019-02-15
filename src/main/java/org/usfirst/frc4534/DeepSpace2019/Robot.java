@@ -45,6 +45,7 @@ public class Robot extends TimedRobot {
     public static DriveTrain driveTrain;
     public static TestingPistons testingPistons;
     public static MovingMotors movingMotors;
+    public static RedesignedLift redesignedLift;
     // public static Intake intake;
     // public static EndgameExtensions endgameExtensions;
     // public static Limelight limelight;
@@ -68,6 +69,8 @@ public class Robot extends TimedRobot {
         driveTrain = new DriveTrain();
         testingPistons = new TestingPistons();
         movingMotors = new MovingMotors();
+        redesignedLift = new RedesignedLift();
+        // redesignedIntake = new RedesignedIntake();
         // intake = new Intake();
         // endgameExtensions = new EndgameExtensions();
         // limelight = new Limelight();

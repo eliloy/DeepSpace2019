@@ -5,40 +5,41 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc4534.DeepSpace2019.testing;
-
+package org.usfirst.frc4534.DeepSpace2019.commands;
 import org.usfirst.frc4534.DeepSpace2019.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ResetLiftEncoder extends Command {
-  public ResetLiftEncoder() {
+public class ToggleKablams extends Command {
+  protected boolean state;
+  protected boolean isFinished;
+
+  public ToggleKablams() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.redesignedLift);
-  }
+    requires(Robot.testingPistons);
 
+  }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    state = Robot.testingPistons.getSquol();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.redesignedLift.resetLiftEncoder();
+    Robot.testingPistons.setSquol(!state);
+    isFinished = true;
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if(Robot.redesignedLift.getLiftEncoder() > 0.0) {
-      return false; 
-    }
-    else return true;
+    return isFinished;
   }
-
+  //Ryder is gray
+  
   // Called once after isFinished returns true
   @Override
   protected void end() {
