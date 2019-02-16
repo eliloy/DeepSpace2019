@@ -12,39 +12,39 @@ import org.usfirst.frc4534.DeepSpace2019.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class MoveVacuum extends Command {
-  private double m_rate;
-  public MoveVacuum(double rate) {
-    m_rate = rate;
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.movingMotors);
-  }
+    private double m_rate;
+    public MoveVacuum(double rate) {
+        m_rate = rate;
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+        requires(Robot.movingMotors);
+    }
 
-  // Called just before this Command runs the first time
-  @Override
-  protected void initialize() {
-  }
+    // Called just before this Command runs the first time
+    @Override
+    protected void initialize() {
+    }
 
-  // Called repeatedly when this Command is scheduled to run
-  @Override
-  protected void execute() {
-    Robot.movingMotors.vacuumSet(m_rate);
-  }
+    // Called repeatedly when this Command is scheduled to run
+    @Override
+    protected void execute() {
+        Robot.movingMotors.vacuumSet(m_rate);
+    }
 
-  // Make this return true when this Command no longer needs to run execute()
-  @Override
-  protected boolean isFinished() {
-    return false;
-  }
+    // Make this return true when this Command no longer needs to run execute()
+    @Override
+    protected boolean isFinished() {
+        return false;
+    }
 
-  // Called once after isFinished returns true
-  @Override
-  protected void end() {
-  }
+    // Called once after isFinished returns true
+    @Override
+    protected void end() {
+    }
 
-  // Called when another command which requires one or more of the same
-  // subsystems is scheduled to run
-  @Override
-  protected void interrupted() {
-  }
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    @Override
+    protected void interrupted() {
+    }
 }

@@ -22,58 +22,58 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
  * Add your docs here.
  */
 public class RedesignedLift extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-  private WPI_VictorSPX liftMotor;
-  private DigitalInput liftLowerLimit;
-  private DigitalInput liftUpperLimit;
-  private Encoder liftEncoder;
+    // Put methods for controlling this subsystem
+    // here. Call these from Commands.
+    private WPI_VictorSPX liftMotor;
+    private DigitalInput liftLowerLimit;
+    private DigitalInput liftUpperLimit;
+    private Encoder liftEncoder;
 
-  public RedesignedLift() {
-    liftMotor = new WPI_VictorSPX(6);
+    public RedesignedLift() {
+        liftMotor = new WPI_VictorSPX(6);
 
-    liftUpperLimit = new DigitalInput(6);
-    liftLowerLimit = new DigitalInput(7);
+        liftUpperLimit = new DigitalInput(6);
+        liftLowerLimit = new DigitalInput(7);
 
-    liftEncoder = new Encoder(4, 5, false, EncodingType.k4X);
-    addChild("liftEncoder",liftEncoder);
-    liftEncoder.setDistancePerPulse(1.0);
-    liftEncoder.setPIDSourceType(PIDSourceType.kRate);
-  }
+        liftEncoder = new Encoder(4, 5, false, EncodingType.k4X);
+        addChild("liftEncoder",liftEncoder);
+        liftEncoder.setDistancePerPulse(1.0);
+        liftEncoder.setPIDSourceType(PIDSourceType.kRate);
+    }
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new TestLift());
-  }
+    @Override
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        // setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new LiftWithJoystick());
+    }
 
-  public void liftSet(double rate) {
-    liftMotor.set(rate);
-  }
+    public void liftSet(double rate) {
+        liftMotor.set(rate);
+    }
 
-  public void resetLiftEncoder() {
-    liftEncoder.reset();
-  }
+    public void resetLiftEncoder() {
+        liftEncoder.reset();
+    }
 
-  public double getLiftEncoder() {
-    return liftEncoder.getDistance();
-  }
+    public double getLiftEncoder() {
+        return liftEncoder.getDistance();
+    }
 
-  public boolean getLowerLimit() {
-    return liftLowerLimit.get();
-  }
+    public boolean getLowerLimit() {
+        return liftLowerLimit.get();
+    }
 
-  public boolean getUpperLimit() {
-    return liftUpperLimit.get();
-  }
+    public boolean getUpperLimit() {
+        return liftUpperLimit.get();
+    }
 
-  public double liftMin() {
-    return 0;
-  }
+    public double liftMin() {
+        return 0;
+    }
 
-  public double liftMax() {
-    return 42;
-  }
+    public double liftMax() {
+        return 42;
+    }
 
 }

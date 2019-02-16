@@ -10,44 +10,43 @@ import org.usfirst.frc4534.DeepSpace2019.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class ToggleKablams extends Command {
-  protected boolean state;
-  protected boolean isFinished;
+    protected boolean state;
+    protected boolean isFinished;
 
-  public ToggleKablams() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.testingPistons);
+    public ToggleKablams() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+        requires(Robot.testingPistons);
+    }
 
-  }
+    // Called just before this Command runs the first time
+    @Override
+    protected void initialize() {
+        state = Robot.testingPistons.getSquol();
+    }
 
-  // Called just before this Command runs the first time
-  @Override
-  protected void initialize() {
-    state = Robot.testingPistons.getSquol();
-  }
+    // Called repeatedly when this Command is scheduled to run
+    @Override
+    protected void execute() {
+        Robot.testingPistons.setSquol(!state);
+        isFinished = true;
+    }
 
-  // Called repeatedly when this Command is scheduled to run
-  @Override
-  protected void execute() {
-    Robot.testingPistons.setSquol(!state);
-    isFinished = true;
-  }
-
-  // Make this return true when this Command no longer needs to run execute()
-  @Override
-  protected boolean isFinished() {
-    return isFinished;
-  }
-  //Ryder is gray
+    // Make this return true when this Command no longer needs to run execute()
+    @Override
+    protected boolean isFinished() {
+        return isFinished;
+    }
+    //Ryder is gray
   
-  // Called once after isFinished returns true
-  @Override
-  protected void end() {
-  }
+    // Called once after isFinished returns true
+    @Override
+    protected void end() {
+    }
 
-  // Called when another command which requires one or more of the same
-  // subsystems is scheduled to run
-  @Override
-  protected void interrupted() {
-  }
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    @Override
+    protected void interrupted() {
+    }
 }
