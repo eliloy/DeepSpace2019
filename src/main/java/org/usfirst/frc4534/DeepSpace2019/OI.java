@@ -109,7 +109,6 @@ public class OI {
         rightBumper2.whenPressed(new ToggleKablams());
 
         // SmartDashboard Buttons
-        SmartDashboard.putData("ToggleSaul", new ToggleSaul());
         // SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         // SmartDashboard.putData("IntakeBall", new IntakeBall(0.7));
         // SmartDashboard.putData("EjectBall", new EjectBall(0.7));

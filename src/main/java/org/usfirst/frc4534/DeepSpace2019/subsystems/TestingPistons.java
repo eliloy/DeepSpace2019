@@ -43,14 +43,6 @@ public class TestingPistons extends Subsystem {
     solenoid6 = new Solenoid(30, 6);
     addChild("solenoid6", solenoid6);
 
-    // solenoid7 = new Solenoid(30, 7);
-    // addChild("solenoid7", solenoid7);
-
-    // solenoid8 = new Solenoid(30, 8);
-    // addChild("solenoid8", solenoid8);
-
-  
-    
   }
 
   // Put methods for controlling this subsystem
