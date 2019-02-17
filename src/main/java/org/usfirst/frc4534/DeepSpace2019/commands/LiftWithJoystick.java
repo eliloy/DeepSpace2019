@@ -44,15 +44,33 @@ public class LiftWithJoystick extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        double TarsSpeed;
-        if(Math.abs(Robot.oi.joystick2.getRawAxis(1)) > 0.05) {
-            TarsSpeed = (Robot.oi.joystick2.getRawAxis(1) * testSpeed);
-            System.out.println("TarsSpeed = " + TarsSpeed);
-            Robot.redesignedLift.liftSet(TarsSpeed);
+        // double TarsSpeed;
+        // if(Math.abs(Robot.oi.joystick2.getRawAxis(1)) > 0.05) {
+        //     TarsSpeed = (Robot.oi.joystick2.getRawAxis(1) * testSpeed);
+        //     System.out.println("TarsSpeed = " + TarsSpeed);
+        //     Robot.redesignedLift.liftSet(TarsSpeed);
+        // }
+        // else {
+        //     Robot.redesignedLift.liftSet(0.0);
+        // }
+        // Note to self: negative values are UP on the lift
+        double TarsLift = (Robot.oi.joystick2.getRawAxis(1));
+        if(0.1 > TarsLift && TarsLift > -0.1) {
+            TarsLift = 0.0;
         }
-        else {
-            Robot.redesignedLift.liftSet(0.0);
-        }
+        // if(Robot.redesignedLift.getUpperLimit() && TarsLift < 0.0) {
+        //     TarsLift = 0.0;
+        // }
+        // if(Robot.redesignedLift.getLowerLimit() && TarsLift > 0.0) {
+        //     TarsLift = 0.0;
+        // }
+        // if(Robot.redesignedLift.getLiftEncoder() < Robot.redesignedLift.liftMin() + 100 && TarsLift > 0.0) {
+        //     TarsLift *= (Robot.redesignedLift.getLiftEncoder()/100);
+        // }
+        // if(Robot.redesignedLift.getLiftEncoder() > Robot.redesignedLift.liftMax() - 100 && TarsLift < 0.0) {
+        //     TarsLift *= (((Robot.redesignedLift.liftMax() + 50) - Robot.redesignedLift.getLiftEncoder())/150);
+        // }
+        Robot.redesignedLift.liftSet(TarsLift);
     }
 
     // Make this return true when this Command no longer needs to run execute()

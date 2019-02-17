@@ -61,11 +61,11 @@ public class RedesignedLift extends Subsystem {
     }
 
     public boolean getLowerLimit() {
-        return liftLowerLimit.get();
+        return !liftLowerLimit.get();
     }
 
     public boolean getUpperLimit() {
-        return liftUpperLimit.get();
+        return !liftUpperLimit.get();
     }
 
     public double liftMin() {
@@ -73,7 +73,7 @@ public class RedesignedLift extends Subsystem {
     }
 
     public double liftMax() {
-        return 42;
+        return 1300;
     }
 
 }
