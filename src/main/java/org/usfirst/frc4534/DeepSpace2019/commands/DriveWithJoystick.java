@@ -51,7 +51,14 @@ public class DriveWithJoystick extends Command {
         if (0.05 > TarsSpeed && TarsSpeed > -0.05) {
             TarsSpeed = 0;
         }
-        double TarsRotation = Robot.oi.joystick.getRawAxis(4) * testSpeed;
+        double TarsRotation;
+        if(Robot.oi.rightBumper.get() == true) {
+            TarsRotation = Robot.oi.joystick.getRawAxis(4) * 0.4;
+        }
+        else
+        {
+            TarsRotation = Robot.oi.joystick.getRawAxis(4) * testSpeed;
+        }
         if (0.05 > TarsRotation && TarsRotation > -0.05) {
             TarsRotation = 0;
         }
