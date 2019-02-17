@@ -9,6 +9,7 @@ package org.usfirst.frc4534.DeepSpace2019.subsystems;
 
 import org.usfirst.frc4534.DeepSpace2019.Robot;
 import org.usfirst.frc4534.DeepSpace2019.commands.*;
+import org.usfirst.frc4534.DeepSpace2019.testing.ToggleVacuum;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
@@ -31,11 +32,12 @@ public class MovingMotors extends Subsystem {
         vacuumMotor = new WPI_TalonSRX(8);
         intakeMotor = new WPI_VictorSPX(7);
         
-        ballDetect = new DigitalInput(8);
+        ballDetect = new DigitalInput(6);
     }
 
     @Override
     public void initDefaultCommand() {
+        setDefaultCommand(new ToggleVacuum());
     }
 
     @Override
@@ -48,6 +50,10 @@ public class MovingMotors extends Subsystem {
 
     public void vacuumSet(double rate) {
         vacuumMotor.set(rate);
+    }
+
+    public double vacuumGet() {
+        return vacuumMotor.get();
     }
 
     public void intakeOn() {

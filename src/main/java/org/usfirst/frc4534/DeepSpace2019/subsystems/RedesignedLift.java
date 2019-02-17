@@ -32,7 +32,7 @@ public class RedesignedLift extends Subsystem {
     public RedesignedLift() {
         liftMotor = new WPI_VictorSPX(6);
 
-        liftUpperLimit = new DigitalInput(6);
+        liftUpperLimit = new DigitalInput(8);
         liftLowerLimit = new DigitalInput(7);
 
         liftEncoder = new Encoder(4, 5, false, EncodingType.k4X);

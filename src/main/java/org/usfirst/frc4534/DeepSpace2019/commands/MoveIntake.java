@@ -5,15 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc4534.DeepSpace2019.testing;
+package org.usfirst.frc4534.DeepSpace2019.commands;
 
 import org.usfirst.frc4534.DeepSpace2019.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class MoveVacuum extends Command {
+public class MoveIntake extends Command {
     private double m_rate;
-    public MoveVacuum(double rate) {
+    public MoveIntake(double rate) {
         m_rate = rate;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -28,7 +28,7 @@ public class MoveVacuum extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.movingMotors.vacuumSet(m_rate);
+        Robot.movingMotors.intakeSet(m_rate);
     }
 
     // Make this return true when this Command no longer needs to run execute()

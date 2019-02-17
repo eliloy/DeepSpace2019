@@ -11,10 +11,10 @@ import org.usfirst.frc4534.DeepSpace2019.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class MoveIntake extends Command {
-    private double m_rate;
-    public MoveIntake(double rate) {
-        m_rate = rate;
+public class ToggleVacuum extends Command {
+    private boolean motorState = false;
+    private boolean buttonState = false;
+    public ToggleVacuum() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.movingMotors);
@@ -28,7 +28,22 @@ public class MoveIntake extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.movingMotors.intakeSet(m_rate);
+        if (Robot.oi.joystick2.getRawButton(1) && buttonState == false) {
+            buttonState = true;
+            if (motorState == false) {
+                Robot.movingMotors.vacuumSet(-1.0);
+                motorState = true;
+                System.out.println("Vacuuming...");
+            }
+            else {
+                Robot.movingMotors.vacuumSet(0.0);
+                motorState = false;
+                System.out.println("Not vacuuming...");
+            }
+        }
+        else if (!Robot.oi.joystick2.getRawButton(1) && buttonState == true) {
+            buttonState = false;
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

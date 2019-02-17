@@ -23,25 +23,40 @@ public class LiftToHeight extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        Robot.redesignedLift.resetLiftEncoder();
+        if (Robot.redesignedLift.getLowerLimit() == false) {
+            Robot.redesignedLift.resetLiftEncoder();
+        }
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.redesignedLift.liftSet(.5);
+        if (Robot.redesignedLift.getLiftEncoder() < m_setpoint - 10) {
+            Robot.redesignedLift.liftSet(-0.5);
+        }
+        if (Robot.redesignedLift.getLiftEncoder() < m_setpoint + 10 && Robot.redesignedLift.getLiftEncoder() > m_setpoint - 10) {
+            if (Robot.redesignedLift.getLiftEncoder() < m_setpoint) {
+                Robot.redesignedLift.liftSet(-0.1);
+            }
+            if (Robot.redesignedLift.getLiftEncoder() > m_setpoint) {
+                Robot.redesignedLift.liftSet(0.1);
+            }
+        }
+        if (Robot.redesignedLift.getLiftEncoder() > m_setpoint + 10) {
+            Robot.redesignedLift.liftSet(0.5);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        if(Robot.redesignedLift.getLiftEncoder() < m_setpoint){
-            return false;
-        } 
-        if(Robot.oi.joystick2.getRawAxis(1) > 0.05){
+        if((m_setpoint + 5) > Robot.redesignedLift.getLiftEncoder() && Robot.redesignedLift.getLiftEncoder() > (m_setpoint - 5)) {
+            return true;
+        }
+        if(Math.abs(Robot.oi.joystick2.getRawAxis(1)) > 0.05) {
             return true; 
         }
-        else return true; 
+        else return false; 
     }
 
     // Called once after isFinished returns true

@@ -33,7 +33,7 @@ public class ResetLiftEncoder extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        if(Robot.redesignedLift.getLiftEncoder() > 0.0) {
+        if(Robot.redesignedLift.getLiftEncoder() > 1.0) {
             return false; 
         }
         else return true;
