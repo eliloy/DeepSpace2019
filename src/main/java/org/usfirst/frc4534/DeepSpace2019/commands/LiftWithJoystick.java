@@ -54,7 +54,7 @@ public class LiftWithJoystick extends Command {
         //     Robot.redesignedLift.liftSet(0.0);
         // }
         // Note to self: negative values are UP on the lift
-        double TarsLift = (Robot.oi.joystick2.getRawAxis(1));
+        double TarsLift = (Robot.oi.joystick2.getRawAxis(1) * halfSpeed);
         if(0.1 > TarsLift && TarsLift > -0.1) {
             TarsLift = 0.0;
         }

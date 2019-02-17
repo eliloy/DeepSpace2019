@@ -28,7 +28,7 @@ public class MoveIntake extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.movingMotors.intakeSet(m_rate);
+        Robot.intake.intakeSet(m_rate);
     }
 
     // Make this return true when this Command no longer needs to run execute()

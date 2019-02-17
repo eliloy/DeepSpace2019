@@ -39,6 +39,8 @@ public class RedesignedLift extends Subsystem {
         addChild("liftEncoder",liftEncoder);
         liftEncoder.setDistancePerPulse(1.0);
         liftEncoder.setPIDSourceType(PIDSourceType.kRate);
+
+        liftMotor.configOpenloopRamp(1, 0);
     }
 
     @Override

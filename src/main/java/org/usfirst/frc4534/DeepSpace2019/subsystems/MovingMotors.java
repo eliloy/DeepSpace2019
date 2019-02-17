@@ -25,14 +25,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class MovingMotors extends Subsystem {
     private WPI_TalonSRX vacuumMotor;
-    private WPI_VictorSPX intakeMotor;
-    private DigitalInput ballDetect;
+
 
     public MovingMotors() {
         vacuumMotor = new WPI_TalonSRX(8);
-        intakeMotor = new WPI_VictorSPX(7);
-        
-        ballDetect = new DigitalInput(6);
     }
 
     @Override
@@ -43,29 +39,13 @@ public class MovingMotors extends Subsystem {
     @Override
     public void periodic() {
     }
-
-    public void intakeSet(double rate) {
-        intakeMotor.set(rate);
-    }
-
+    
     public void vacuumSet(double rate) {
         vacuumMotor.set(rate);
     }
 
     public double vacuumGet() {
         return vacuumMotor.get();
-    }
-
-    public void intakeOn() {
-        intakeMotor.set(0.8);
-    }
-
-    public boolean detectBall() {
-        return ballDetect.get();
-    }
-
-    public void isBallGot() {
-        SmartDashboard.putBoolean("Ball?", detectBall());
     }
 }
 
