@@ -9,7 +9,6 @@ package org.usfirst.frc4534.DeepSpace2019.subsystems;
 
 import org.usfirst.frc4534.DeepSpace2019.Robot;
 import org.usfirst.frc4534.DeepSpace2019.commands.*;
-import org.usfirst.frc4534.DeepSpace2019.testing.ToggleVacuum;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
@@ -39,7 +38,7 @@ public class MovingMotors extends Subsystem {
     @Override
     public void periodic() {
     }
-    
+
     public void vacuumSet(double rate) {
         vacuumMotor.set(rate);
     }

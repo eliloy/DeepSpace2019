@@ -17,7 +17,7 @@ public class MoveIntake extends Command {
         m_rate = rate;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.movingMotors);
+        requires(Robot.intake);
     }
 
     // Called just before this Command runs the first time

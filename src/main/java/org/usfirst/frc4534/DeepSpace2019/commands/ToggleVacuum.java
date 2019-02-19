@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc4534.DeepSpace2019.testing;
+package org.usfirst.frc4534.DeepSpace2019.commands;
 
 import org.usfirst.frc4534.DeepSpace2019.Robot;
 

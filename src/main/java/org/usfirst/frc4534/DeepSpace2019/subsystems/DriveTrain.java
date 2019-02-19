@@ -222,6 +222,9 @@ public class DriveTrain extends Subsystem {
         rightFollowerJPLV.configFactoryDefault();
     }
 
+    public double getSpeed() {
+        return leftMasterJPL.get();
+    }
     /* public void setToFollow() {
         leftFollowerJPLT.follow(leftMasterJPL);
         leftFollowerJPLV.follow(leftMasterJPL);

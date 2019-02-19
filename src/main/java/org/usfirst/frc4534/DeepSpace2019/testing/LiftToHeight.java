@@ -23,7 +23,7 @@ public class LiftToHeight extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        if (Robot.redesignedLift.getLowerLimit() == false) {
+        if (Robot.redesignedLift.getLowerLimit() == true) {
             Robot.redesignedLift.resetLiftEncoder();
         }
     }
