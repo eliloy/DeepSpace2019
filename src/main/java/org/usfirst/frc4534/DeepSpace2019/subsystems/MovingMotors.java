@@ -24,6 +24,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class MovingMotors extends Subsystem {
     private WPI_TalonSRX vacuumMotor;
+    private Encoder liftEncoder;
 
 
     public MovingMotors() {
@@ -46,5 +47,14 @@ public class MovingMotors extends Subsystem {
     public double vacuumGet() {
         return vacuumMotor.get();
     }
+    public void resetLiftEncoder(){
+        liftEncoder.reset();
+    }
+
+    public double getLiftEncoder(){
+        return liftEncoder.getDistance();
+
+    }
 }
+        
 
