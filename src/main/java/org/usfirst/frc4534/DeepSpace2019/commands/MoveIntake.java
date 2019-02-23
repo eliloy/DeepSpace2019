@@ -5,19 +5,20 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc4534.DeepSpace2019.testing;
+package org.usfirst.frc4534.DeepSpace2019.commands;
 
 import org.usfirst.frc4534.DeepSpace2019.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ResetLiftEncoder extends Command {
-    public ResetLiftEncoder() {
+public class MoveIntake extends Command {
+    private double m_rate;
+    public MoveIntake(double rate) {
+        m_rate = rate;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.redesignedLift);
+        requires(Robot.intake);
     }
-
 
     // Called just before this Command runs the first time
     @Override
@@ -27,16 +28,13 @@ public class ResetLiftEncoder extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.redesignedLift.resetLiftEncoder();
+        Robot.intake.intakeSet(m_rate);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        if(Robot.redesignedLift.getLiftEncoder() > 1.0) {
-            return false; 
-        }
-        else return true;
+        return false;
     }
 
     // Called once after isFinished returns true

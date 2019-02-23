@@ -13,28 +13,28 @@ public class ToggleShifter extends Command {
     protected boolean state;
     protected boolean isFinished = false;
     public ToggleShifter() {
-      requires(Robot.testingPistons);
-      // Use requires() here to declare subsystem dependencies
-      // eg. requires(chassis);
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+        requires(Robot.testingPistons);
     }
   
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-      state = Robot.testingPistons.betterCallSaul();
+        state = Robot.testingPistons.betterCallSaul();
     }
   
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-      Robot.testingPistons.setSaul(!state);
-      isFinished = true;
+        Robot.testingPistons.setSaul(!state);
+        isFinished = true;
     }
   
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-      return isFinished;
+        return isFinished;
     }
   
     // Called once after isFinished returns true

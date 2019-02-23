@@ -5,19 +5,20 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc4534.DeepSpace2019.testing;
+package org.usfirst.frc4534.DeepSpace2019.commands;
 
 import org.usfirst.frc4534.DeepSpace2019.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ResetLiftEncoder extends Command {
-    public ResetLiftEncoder() {
+public class ToggleVacuum extends Command {
+    private boolean motorState = false;
+    private boolean buttonState = false;
+    public ToggleVacuum() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.redesignedLift);
+        requires(Robot.movingMotors);
     }
-
 
     // Called just before this Command runs the first time
     @Override
@@ -27,16 +28,28 @@ public class ResetLiftEncoder extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.redesignedLift.resetLiftEncoder();
+        if (Robot.oi.joystick2.getRawButton(1) && buttonState == false) {
+            buttonState = true;
+            if (motorState == false) {
+                Robot.movingMotors.vacuumSet(-1.0);
+                motorState = true;
+                System.out.println("Vacuuming...");
+            }
+            else {
+                Robot.movingMotors.vacuumSet(0.0);
+                motorState = false;
+                System.out.println("Not vacuuming...");
+            }
+        }
+        else if (!Robot.oi.joystick2.getRawButton(1) && buttonState == true) {
+            buttonState = false;
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        if(Robot.redesignedLift.getLiftEncoder() > 1.0) {
-            return false; 
-        }
-        else return true;
+        return false;
     }
 
     // Called once after isFinished returns true
