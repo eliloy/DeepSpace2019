@@ -26,13 +26,12 @@ public class RedesignedLift extends Subsystem {
     // here. Call these from Commands.
     private WPI_VictorSPX liftMotor;
     private DigitalInput liftLowerLimit;
-    private DigitalInput liftUpperLimit;
+
     private Encoder liftEncoder;
 
     public RedesignedLift() {
         liftMotor = new WPI_VictorSPX(6);
 
-        liftUpperLimit = new DigitalInput(8);
         liftLowerLimit = new DigitalInput(7);
 
         liftEncoder = new Encoder(4, 5, false, EncodingType.k4X);
@@ -64,10 +63,6 @@ public class RedesignedLift extends Subsystem {
 
     public boolean getLowerLimit() {
         return !liftLowerLimit.get();
-    }
-
-    public boolean getUpperLimit() {
-        return !liftUpperLimit.get();
     }
 
     public double liftMin() {
