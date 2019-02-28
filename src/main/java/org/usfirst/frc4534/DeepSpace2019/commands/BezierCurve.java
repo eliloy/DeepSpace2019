@@ -149,8 +149,8 @@ public class BezierCurve extends Command {
                 //Testing values in dashboard for troubleshooting
                 //Starts traveiling along the arc at speed (ratio). Goes until the distance is met.
                 if(angle 
-                > 0) Robot.driveTrain.TankDrive(m_ratio, ((r - 12) / (r + 12)) * m_ratio);
-                if(angle < 0) Robot.driveTrain.TankDrive((r + 12) / (r - 12) * m_ratio, m_ratio);
+                > 0) Robot.driveTrain.TankDrive(m_ratio, ((r - 11.75) / (r + 11.75)) * m_ratio);
+                if(angle < 0) Robot.driveTrain.TankDrive((r + 11.75) / (r - 11.75) * m_ratio, m_ratio);
                 if(angle == 0) Robot.driveTrain.TankDrive(m_ratio, m_ratio);
         }
     }
