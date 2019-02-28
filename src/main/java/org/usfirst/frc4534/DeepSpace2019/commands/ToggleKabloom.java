@@ -6,30 +6,33 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc4534.DeepSpace2019.commands;
+
 import org.usfirst.frc4534.DeepSpace2019.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ToggleHatch extends Command {
+
+public class ToggleKabloom extends Command {
   protected boolean state;
   protected boolean isFinished;
-
-  public ToggleHatch() {
+  public ToggleKabloom() {
+    requires(Robot.endgameExtensions);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.intake);
-
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    state = Robot.intake.getHatchPeen();
+  state = Robot.endgameExtensions.getKabloom();
   }
+    
+  
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.setHatchPeen(!state);
+    Robot.endgameExtensions.setKabloom(!state);
     isFinished = true;
   }
 
@@ -38,8 +41,7 @@ public class ToggleHatch extends Command {
   protected boolean isFinished() {
     return isFinished;
   }
-  //Ryder is gray
-  
+
   // Called once after isFinished returns true
   @Override
   protected void end() {

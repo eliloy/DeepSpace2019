@@ -10,41 +10,42 @@ import org.usfirst.frc4534.DeepSpace2019.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class ToggleShifter extends Command {
-    protected boolean state;
-    protected boolean isFinished = false;
-    public ToggleShifter() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(Robot.testingPistons);
-    }
+  protected boolean state;
+  protected boolean isFinished;
   
-    // Called just before this Command runs the first time
-    @Override
-    protected void initialize() {
-        state = Robot.testingPistons.betterCallSaul();
-    }
-  
-    // Called repeatedly when this Command is scheduled to run
-    @Override
-    protected void execute() {
-        Robot.testingPistons.setSaul(!state);
-        isFinished = true;
-    }
-  
-    // Make this return true when this Command no longer needs to run execute()
-    @Override
-    protected boolean isFinished() {
-        return isFinished;
-    }
-  
-    // Called once after isFinished returns true
-    @Override
-    protected void end() {
-    }
-  
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    @Override
-    protected void interrupted() {
-    }
+  public ToggleShifter() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    requires(Robot.intake);
+  }
+
+  // Called just before this Command runs the first time
+  @Override
+  protected void initialize() {
+    state = Robot.driveTrain.getShifter();
+  }
+
+  // Called repeatedly when this Command is scheduled to run
+  @Override
+  protected void execute() {
+    Robot.driveTrain.setShifter(!state);
+    isFinished = true;
+  }
+
+  // Make this return true when this Command no longer needs to run execute()
+  @Override
+  protected boolean isFinished() {
+    return isFinished;
+  }
+
+  // Called once after isFinished returns true
+  @Override
+  protected void end() {
+  }
+
+  // Called when another command which requires one or more of the same
+  // subsystems is scheduled to run
+  @Override
+  protected void interrupted() {
+  }
 }

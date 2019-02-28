@@ -6,29 +6,30 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc4534.DeepSpace2019.commands;
+import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc4534.DeepSpace2019.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ToggleCommand extends Command {
-  boolean state = false;
-  boolean isFinished = false;
-  public ToggleCommand() {
+public class ToggledrSolenoid extends Command {
+  protected boolean state;
+  protected boolean isFinished;
+  public ToggledrSolenoid() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.testingPistons);
+    requires(Robot.intake);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    state = Robot.testingPistons.getSquol();
+   state = Robot.intake.getdrSolenoid();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.testingPistons.setSquol(!state);
+    Robot.intake.setdrSolenoid(!state);
     isFinished = true;
   }
 
