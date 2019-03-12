@@ -40,6 +40,7 @@ public class ToggleRocket extends Command {
     @Override
     protected void initialize() {
         state = Robot.testingPistons.getSeoul();
+        System.out.println(Robot.testingPistons.getSeoul());
     }
 
     // Called repeatedly when this Command is scheduled to run

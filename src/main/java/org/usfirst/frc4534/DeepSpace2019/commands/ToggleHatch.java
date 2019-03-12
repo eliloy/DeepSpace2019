@@ -23,6 +23,7 @@ public class ToggleHatch extends Command {
     @Override
     protected void initialize() {
         state = Robot.testingPistons.getSeal();
+        System.out.println(Robot.testingPistons.getSeal());
     }
 
     // Called repeatedly when this Command is scheduled to run
