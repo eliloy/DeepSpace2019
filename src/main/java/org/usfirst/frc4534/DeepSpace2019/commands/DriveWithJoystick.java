@@ -11,6 +11,7 @@
 
 package org.usfirst.frc4534.DeepSpace2019.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import java.lang.Math;
 import org.usfirst.frc4534.DeepSpace2019.Robot;
 
 /**
@@ -54,7 +55,7 @@ public class DriveWithJoystick extends Command {
             TarsSpeed = Robot.oi.joystick.getRawAxis(1) * halfSpeed;
         }
         else {
-            TarsSpeed = Robot.oi.joystick.getRawAxis(1) * drivingSpeed + Robot.oi.joystick.getRawAxis(2) * (1 - drivingSpeed);
+            TarsSpeed = Robot.oi.joystick.getRawAxis(1) * (drivingSpeed + ((Robot.oi.joystick.getRawAxis(2)) * (1 - drivingSpeed)));
         }
         if (0.05 > TarsSpeed && TarsSpeed > -0.05) {
             TarsSpeed = 0;
