@@ -63,7 +63,7 @@ public class LiftWithJoystick extends Command {
         {
             TarsLift = (Robot.oi.joystick2.getRawAxis(1) * halfSpeed);
         }
-        if(0.1 > TarsLift && TarsLift > -0.1) {
+        if((0.1 > TarsLift && TarsLift > -0.1) | (Robot.redesignedLift.getLowerLimit() == true && Robot.oi.joystick2.getRawAxis(1) > 0 && Robot.oi.joystick2.getRawAxis(3) > 0.5)) {
             TarsLift = 0.0;
         }
         // if(Robot.redesignedLift.getUpperLimit() && TarsLift < 0.0) {

@@ -98,7 +98,7 @@ public class OI {
         xButton2 = new JoystickButton(joystick2, 3);
         xButton2.whenPressed(new ToggleVacSlide());
         leftBumper2 = new JoystickButton(joystick2, 5);
-        leftBumper2.whenPressed(new MoveIntake(-1.0));
+        leftBumper2.whenPressed(new MoveIntake(-0.8));
         leftBumper2.whenReleased(new MoveIntake(0.0));
         rightBumper2 = new JoystickButton(joystick2, 6);
         rightBumper2.whenPressed(new MoveIntake(1.0));

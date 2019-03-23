@@ -44,7 +44,7 @@ public class Intake extends Subsystem {
     }
 
     public void intakeOn() {
-        intakeMotor.set(0.7);
+        intakeMotor.set(0.9);
     }
 
     public boolean detectBall() {
