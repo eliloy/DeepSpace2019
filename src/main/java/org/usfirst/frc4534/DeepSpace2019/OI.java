@@ -85,7 +85,7 @@ public class OI {
         start = new JoystickButton(joystick, 8);
         start.whenPressed(new ToggleRocket());
         xButtonc1 = new JoystickButton(joystick, 3);
-        xButtonc1.whenPressed(new ToggleRocket());
+        xButtonc1.whenPressed(new TapeGroup());
         leftJoystick = new JoystickButton(joystick, 9);
         leftBumper = new JoystickButton(joystick, 5);
         rightBumper = new JoystickButton(joystick, 6);
