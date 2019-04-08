@@ -55,6 +55,7 @@ public class OI {
     public JoystickButton aButton;
     public JoystickButton bButton;
     public JoystickButton xButton;
+    public JoystickButton xButtonc1;
     public JoystickButton yButton;
     public JoystickButton leftBumper;
     public JoystickButton rightBumper;
@@ -83,6 +84,8 @@ public class OI {
         select.whenPressed(new ToggleKablams());
         start = new JoystickButton(joystick, 8);
         start.whenPressed(new ToggleRocket());
+        xButtonc1 = new JoystickButton(joystick, 3);
+        xButtonc1.whenPressed(new ToggleRocket());
         leftJoystick = new JoystickButton(joystick, 9);
         leftBumper = new JoystickButton(joystick, 5);
         rightBumper = new JoystickButton(joystick, 6);
