@@ -122,7 +122,7 @@ public class GoToTape extends Command {
             if(Math.abs(sampleAngles[i] - averageAngle) > 4) {
                 sampleAngles[i] = 1337;
             }
-            if(Math.abs(sampleSizes[i] - averageSize) > 0.07) {
+            if(Math.abs(sampleSizes[i] - averageSize) > 0.1) {
                 sampleAngles[i] = 1337;
             }
         }
