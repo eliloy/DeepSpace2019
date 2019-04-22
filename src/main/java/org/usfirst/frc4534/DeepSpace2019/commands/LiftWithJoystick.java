@@ -57,7 +57,7 @@ public class LiftWithJoystick extends Command {
         double TarsLift;
         if(Robot.oi.joystick2.getRawAxis(3) < 0.5)
         {
-            TarsLift = (Robot.oi.joystick2.getRawAxis(1) * fullSpeed);
+            TarsLift = (Robot.oi.joystick2.getRawAxis(1) * testSpeed);
         }
         else
         {
