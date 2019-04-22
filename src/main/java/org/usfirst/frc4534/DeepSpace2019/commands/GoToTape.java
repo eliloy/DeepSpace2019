@@ -40,6 +40,7 @@ public class GoToTape extends Command {
     public static double distance;
     public static double straightDistance;
     public static double sideDistance;
+    boolean done = false;
     double angle;
     double averageSize;
     double averageAngle;
@@ -75,6 +76,7 @@ public class GoToTape extends Command {
             //bad boys go here
             //ASTROTOSH IS THE TRUE NAME
         }
+        done = true;
 
     }
 
@@ -86,7 +88,7 @@ public class GoToTape extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return false;
+        return done;
     }
 
     // Called once after isFinished returns true
@@ -122,7 +124,7 @@ public class GoToTape extends Command {
             if(Math.abs(sampleAngles[i] - averageAngle) > 4) {
                 sampleAngles[i] = 1337;
             }
-            if(Math.abs(sampleSizes[i] - averageSize) > 0.07) {
+            if(Math.abs(sampleSizes[i] - averageSize) > 0.1) {
                 sampleAngles[i] = 1337;
             }
         }

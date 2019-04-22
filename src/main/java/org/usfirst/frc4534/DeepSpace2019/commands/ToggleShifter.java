@@ -9,42 +9,39 @@ package org.usfirst.frc4534.DeepSpace2019.commands;
 import org.usfirst.frc4534.DeepSpace2019.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ToggleHatch extends Command {
+public class ToggleShifter extends Command {
     protected boolean state;
-    protected boolean isFinished;
-
-    public ToggleHatch() {
+    protected boolean isFinished = false;
+    public ToggleShifter() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.testingPistons);
     }
-
+  
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        state = Robot.testingPistons.getSeal();
-        System.out.println(Robot.testingPistons.getSeal());
+        state = Robot.testingPistons.betterCallSaul();
     }
-
+  
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.testingPistons.setSeal(!state);
+        Robot.testingPistons.setSaul(!state);
         isFinished = true;
     }
-
+  
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
         return isFinished;
     }
-    //Ryder is gray
   
     // Called once after isFinished returns true
     @Override
     protected void end() {
     }
-
+  
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override

@@ -5,41 +5,40 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc4534.DeepSpace2019.commands;
+package org.usfirst.frc4534.DeepSpace2019.testing;
+
 import org.usfirst.frc4534.DeepSpace2019.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ToggleHatch extends Command {
-    protected boolean state;
-    protected boolean isFinished;
-
-    public ToggleHatch() {
+public class ResetLiftEncoder extends Command {
+    public ResetLiftEncoder() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.testingPistons);
+        requires(Robot.redesignedLift);
     }
+
 
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        state = Robot.testingPistons.getSeal();
-        System.out.println(Robot.testingPistons.getSeal());
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.testingPistons.setSeal(!state);
-        isFinished = true;
+        Robot.redesignedLift.resetLiftEncoder();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return isFinished;
+        if(Robot.redesignedLift.getLiftEncoder() > 1.0) {
+            return false; 
+        }
+        else return true;
     }
-    //Ryder is gray
-  
+
     // Called once after isFinished returns true
     @Override
     protected void end() {
