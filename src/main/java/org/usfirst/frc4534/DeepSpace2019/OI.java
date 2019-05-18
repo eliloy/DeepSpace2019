@@ -55,6 +55,7 @@ public class OI {
     public JoystickButton aButton;
     public JoystickButton bButton;
     public JoystickButton xButton;
+    public JoystickButton xButtonc1;
     public JoystickButton yButton;
     public JoystickButton leftBumper;
     public JoystickButton rightBumper;
@@ -83,7 +84,10 @@ public class OI {
         select.whenPressed(new ToggleKablams());
         start = new JoystickButton(joystick, 8);
         start.whenPressed(new ToggleRocket());
+        xButtonc1 = new JoystickButton(joystick, 3);
+        xButtonc1.whenPressed(new TapeGroup());
         leftJoystick = new JoystickButton(joystick, 9);
+        leftBumper = new JoystickButton(joystick, 5);
         rightBumper = new JoystickButton(joystick, 6);
         
         joystick2 = new Joystick(1);
@@ -95,9 +99,10 @@ public class OI {
         yButton2 = new JoystickButton(joystick2, 4);
         yButton2.whenPressed(new ToggleHatch());
         xButton2 = new JoystickButton(joystick2, 3);
-        xButton2.whenPressed(new ToggleVacSlide());
+        xButton2.whenPressed(new MoveIntake(-1.0));
+        xButton2.whenReleased(new MoveIntake(0.0));
         leftBumper2 = new JoystickButton(joystick2, 5);
-        leftBumper2.whenPressed(new MoveIntake(-1.0));
+        leftBumper2.whenPressed(new MoveIntake(-0.8));
         leftBumper2.whenReleased(new MoveIntake(0.0));
         rightBumper2 = new JoystickButton(joystick2, 6);
         rightBumper2.whenPressed(new MoveIntake(1.0));

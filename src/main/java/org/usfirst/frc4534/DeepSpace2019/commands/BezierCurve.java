@@ -110,7 +110,8 @@ public class BezierCurve extends Command {
                 }
                 else
                 {
-                    angle = Math.atan2(yList[5] - yList[6], xList[5] - xList[6]) - ((Robot.driveTrain.getGyroAngle() % 360) / 360 * (2 * PI));
+                    //angle = Math.atan2(yList[5] - yList[6], xList[5] - xList[6]) - ((Robot.driveTrain.getGyroAngle() % 360) / 360 * (2 * PI));
+                    angle = Math.atan2(yList[5] - yList[6], xList[5] - xList[6]) - pringle;
                 }
             }
             //Uses current calculated angle to caculate angle difference (present angle to needed one), will assume first grey line represents robots current angle.
@@ -158,7 +159,7 @@ public class BezierCurve extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        if(t == m_precision + 1) return true;
+        if(t >= m_precision + 1) return true;
         else return false;
     }
 

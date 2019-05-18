@@ -140,6 +140,8 @@ public class Robot extends TimedRobot {
         autonomousCommand = chooser.getSelected();
         // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
+        //Robot.testingPistons.setSill(true);
+        //Robot.testingPistons.setSeal(true);
     }
 
     /**
