@@ -115,6 +115,8 @@ public class OI {
         SmartDashboard.putData("Lift mid", new LiftToHeight(715.0));
         SmartDashboard.putData("Lift low", new LiftToHeight(25.0));
         SmartDashboard.putData("Lift mid-low", new LiftToHeight(300.0));
+        SmartDashboard.putData("Enable Demo Mode", driveWithJoystick.setDemoMode(true));
+        SmartDashboard.putData("Disable Demo Mode", driveWithJoystick.setDemoMode(false));
         // SmartDashboard.putData("ChangeLEDMode", new ChangeLEDMode());
         // SmartDashboard.putData("AlignToTape", new AlignToTape());
         // SmartDashboard.putData("ExtendKablams", new ExtendKablams());

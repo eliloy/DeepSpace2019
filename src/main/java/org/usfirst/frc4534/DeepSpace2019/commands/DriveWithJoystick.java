@@ -18,8 +18,10 @@ import org.usfirst.frc4534.DeepSpace2019.Robot;
  *
  */
 public class DriveWithJoystick extends Command {
+    public double demoSpeed = 0.5;
+    public double maxSpeed = 0.8;
     // Change the multiplier for all movement (Turning and Forwards/Backwards)
-    public double drivingSpeed = 1;
+    public double drivingSpeed = maxSpeed;
     // Throttle step applied each run of the scaleTarsSpeed() function
     protected double stepSize = 0.05;
     // Multiplier adding to turn speed
@@ -57,7 +59,7 @@ public class DriveWithJoystick extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        double desTarsSpeed = 0;
+        desTarsSpeed = Robot.oi.joystick.getRawAxis()
         if (Robot.oi.leftBumper.get() == true) {
             desTarsSpeed = Robot.oi.joystick.getRawAxis(1) * 0.5 * drivingSpeed;
         } else {
@@ -70,8 +72,7 @@ public class DriveWithJoystick extends Command {
         } else {
             TarsRotation = Robot.oi.joystick.getRawAxis(4) * turnSpeed * drivingSpeed;
         }
-        currentTarsSpeed = scaleTarsSpeed(desTarsSpeed, currentTarsSpeed);
-        Robot.driveTrain.ArcadeDrive(-currentTarsSpeed, TarsRotation);
+        Robot.driveTrain.ArcadeDrive(-desTarsSpeed, TarsRotation);
         Robot.testingPistons.setSaul(Robot.oi.leftJoystick.get());
     }
 
@@ -93,23 +94,12 @@ public class DriveWithJoystick extends Command {
     protected void interrupted() {
         Robot.driveTrain.TankDrive(0, 0);
     }
-
-    protected double scaleTarsSpeed(double speed, double lastSpeed) {
-        if (Math.abs(speed) <= minSpeed && Math.abs(lastSpeed) <= minSpeed) {
-            return 0;
-        } else if (speed > lastSpeed) {
-            if (Math.abs(speed - lastSpeed) < stepSize) {
-                return speed;
-            } else {
-                return lastSpeed + stepSize;
-            }
-        } else if (speed < lastSpeed) {
-            if (Math.abs(speed - lastSpeed) < stepSize) {
-                return speed;
-            } else {
-                return lastSpeed - stepSize;
-            }
+    public void setDemoMode(boolean enabled) {
+        if (enabled) {
+            drivingSpeed = demoSpeed;
+            return;
         }
-        return 0;
+        drivingSpeed = maxSpeed;
+        return;
     }
 }
