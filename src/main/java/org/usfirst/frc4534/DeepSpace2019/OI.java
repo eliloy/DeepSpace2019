@@ -116,7 +116,7 @@ public class OI {
         SmartDashboard.putData("Lift low", new LiftToHeight(25.0));
         SmartDashboard.putData("Lift mid-low", new LiftToHeight(300.0));
         // SmartDashboard.putData("ChangeLEDMode", new ChangeLEDMode());
-        SmartDashboard.putData("CBT (Configure Bot (to) Target)", new AlignToTape());
+        //SmartDashboard.putData("CBT (Configure Bot (to) Target)", new AlignToTape());
         SmartDashboard.putData("Enable Demo Mode", new SetDemoMode(true));
         SmartDashboard.putData("Disable Demo Mode", new SetDemoMode(false));
         // SmartDashboard.putData("ExtendKablams", new ExtendKablams());

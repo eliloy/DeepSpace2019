@@ -194,14 +194,6 @@ public class DriveTrain extends Subsystem {
         return rightEncoder.getRate();
     }
 
-    public void resetGyroAngle() {
-        Robot.ahrs.reset();
-    }
-
-    public double getGyroAngle() {
-        return Robot.ahrs.getYaw();
-    }
-
     public double getLeftDistanceCounter() {
         return leftEncoder.getDistance();
     }

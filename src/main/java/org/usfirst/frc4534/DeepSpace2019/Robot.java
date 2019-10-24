@@ -51,8 +51,6 @@ public class Robot extends TimedRobot {
     // public static EndgameExtensions endgameExtensions;
     public static Limelight limelight;
     // public static Lift lift;
-    // public static Navx navx;
-    public static AHRS ahrs;
     public static CameraServer cam;
     // public static PistonMove pistonMove;
     // Joystick joystick1;
