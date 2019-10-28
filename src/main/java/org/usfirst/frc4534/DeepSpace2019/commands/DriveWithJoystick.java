@@ -71,7 +71,10 @@ public class DriveWithJoystick extends Command {
         if (0.05 > TarsRotation && TarsRotation > -0.05) {
             TarsRotation = 0;
         }
-        Robot.driveTrain.ArcadeDrive(-TarsSpeed, TarsRotation);
+        double tarsTilt = Robot.navx.ahrs.getRawGyroY();
+        if(Robot.navx.ahrs.getRawGyroY() < 90 && Robot.navx.ahrs.getRawGyroY() > 80) {
+            Robot.driveTrain.ArcadeDrive(-TarsSpeed, TarsRotation);
+        }
         Robot.testingPistons.setSaul(Robot.oi.leftJoystick.get());
     }
 
